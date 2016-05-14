@@ -1,6 +1,15 @@
 var data=[];
 var eliminar=true;
 function showadd(){
+    admob.initAdmob("ca-app-pub-1982713789251898/9669289987","ca-app-pub-1982713789251898/5239090385");
+    document.addEventListener(admob.Event.onInterstitialReceive, this.onInterstitialReceive, false);
+    admob.cacheInterstitial();
+    admob.isInterstitialReady(function(isReady){
+        if(isReady){
+            admob.showInterstitial();
+        }
+    });
+    admob.showBannerAbsolute(admob.BannerSize.BANNER,0,70);
     document.getElementById("cadd").style.visibility="visible";
 }
 
