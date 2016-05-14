@@ -57,10 +57,11 @@ nav li{
 }
 .agregar input{
     display: block;
-    width: 30%;
+    width: 50%;
     margin: 50px auto;
     height: 50px;
     font-size: 25px;
+    border-radius: 15px;
 }
 .agregar button{
     width: 60px;
