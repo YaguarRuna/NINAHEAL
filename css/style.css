@@ -1,0 +1,72 @@
+@import 'reset.css';
+nav{
+    background-color: lightgray;
+    width: 100%;
+    border-bottom: solid;
+}
+nav ul{
+    width: 100%;
+}
+nav li{
+    padding: 20px;
+    display: inline-block;
+    width: 23.3%;
+    font-size: 15px;
+}
+.menu{
+    width: 40%;
+    margin:20px auto;
+}
+.menu li{
+    padding: 30px;
+    background-color: lightgray;
+    border-radius: 20px;
+    border-style: solid;
+}
+.blocked{
+    color: black;
+}
+
+/*---------------START-------------------*/
+.casillero{
+    margin-top: 13px;
+}
+.casillero div{
+    display: inline-block;
+    width:200px;
+    padding: 60px 0px;
+    margin:3px;
+    border-radius: 15px;
+    border:4px outset;
+}
+.casillero .cselected{
+    color: indianred;
+    border-style: inset;
+}
+.agregar{
+    display: block;
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 100vh;
+    color:black;
+    background-color: rgba(0,139, 139, 0.8);
+    visibility: hidden;
+}
+.agregar input{
+    display: block;
+    width: 30%;
+    margin: 20px auto;
+}
+.agregar button{
+    width: 60px;
+    height: 60px;
+    border:5px solid;
+    border-radius: 50px;
+    background-color: white;
+    
+}
+.eliminar div{
+    background-color: indianred;
+    color:white;
+}

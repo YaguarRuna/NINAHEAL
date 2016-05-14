@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+nav ul li::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+body{
+    margin: 0;
+    color: darkcyan;
+}
+ul{
+    margin:0;
+    list-style: none;
+    padding: 0;
+}
+ul li{
+    text-decoration: none;
+}
+h1,h3{
+    margin:0;
+}
+h1{
+    font-size: 30px;
+}
+h3{
+    font-size: 20px;
+    color:gray;
+}
