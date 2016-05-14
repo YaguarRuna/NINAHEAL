@@ -102,14 +102,10 @@ if(AdMob) AdMob.createBanner( {
     autoShow:true} );
  
 }
-  function onDeviceReady(){
-  alert("device ready");
-      adSetter();
-  }
- 
  
 function domLoaded(){
- document.addEventListener("deviceready", onDeviceReady, false);
+      alert("device ready");
+      adSetter();
 }
 
 
@@ -119,3 +115,4 @@ function domLoaded(){
 
 leer();
 mostrar();
+domLoaded();
