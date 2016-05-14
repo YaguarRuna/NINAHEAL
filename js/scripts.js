@@ -100,7 +100,7 @@ if(AdMob) AdMob.createBanner( {
     adId:admobid.banner, 
     position:AdMob.AD_POSITION.BOTTOM_CENTER, 
     autoShow:true} );
- 
+ alert(AdMob);
 }
  
 function domLoaded(){
