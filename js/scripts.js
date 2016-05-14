@@ -75,21 +75,8 @@ function del(){
 
 
 function adSetter(){
-alert(navigator.userAgent);
-var admobid = {};
-// select the right Ad Id according to platform
- 
-    admobid = { // for Android
-        banner: 'ca-app-pub-1982713789251898/9669289987',
-        interstitial: 'ca-app-pub-1982713789251898/5239090385'
-    };
- alert(AdMob);
-if(AdMob) AdMob.createBanner( {
-    isTesting:true, //Remove this Before publishing your app
-    adId:admobid.banner, 
-    position:AdMob.AD_POSITION.BOTTOM_CENTER, 
-    autoShow:true} );
 
+admob.requestInterstitialAd({publisherId: "ca-app-pub-1982713789251898/9669289987 ", interstitialAdId: "ca-app-pub-1982713789251898/5239090385"});
  
 }
  
