@@ -12,10 +12,7 @@
     
     
     
-    <div id="progressDialog" class="progressDialog hidden">
-      <div id="spinner"></div>
-      <span id="message">Loading ads...</span>
-    </div>
+
     
     
     
@@ -41,6 +38,13 @@
         </form>
     </div>
     <audio src="src/tap.ogg" id="tap" preload="auto"></audio>
+        <div id="progressDialog" class="progressDialog hidden">
+      <div id="spinner"></div>
+      <span id="message">...</span>
+    </div>
+    <footer>
+        <button onclick="app.requestInterstitial(true)">Descansar</button>
+    </footer>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="js/index.js"></script>
 <script src="js/scripts.js"></script>
@@ -49,7 +53,6 @@
     leer();
     mostrar();
     app.initialize();
-    var myVar = setInterval(app.requestInterstitial(true), 1000);
 </script>
       
 </body>
