@@ -6,10 +6,13 @@ nav ul li::after {
     content: "";
     clear: both;
     display: block;
+    background-image: url("../img/nav.png");
+
 }
 body{
     margin: 0;
     color: darkcyan;
+    background-image: url("../img/bg.png");
 }
 ul{
     margin:0;

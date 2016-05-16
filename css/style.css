@@ -4,6 +4,7 @@ nav{
     background-color: lightgray;
     width: 100%;
     border-bottom: solid;
+     background-image: url("../img/nav.png");
 }
 nav ul{
     width: 100%;
@@ -20,9 +21,7 @@ nav li{
 }
 .menu li{
     padding: 30px;
-    background-color: lightgray;
-    border-radius: 20px;
-    border-style: solid;
+    background-color: rgba(255,255, 255, 0.8);
 }
 .blocked{
     color: black;
@@ -34,14 +33,14 @@ nav li{
 }
 .casillero div{
     display: inline-block;
-    width:200px;
-    padding: 60px 0px;
+    width:150px;
+    padding: 30px 0px;
     margin:3px;
-    border-radius: 15px;
-    border:4px outset;
+
+    background-color: white;
 }
 .casillero .cselected{
-    color: indianred;
+    color: rebeccapurple;
     border-style: inset;
 }
 .agregar{
