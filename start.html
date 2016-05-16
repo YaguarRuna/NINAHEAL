@@ -7,7 +7,18 @@
   <meta name="author" content="EYACHAY">
   <link rel="stylesheet" href="css/style.css">  
 </head>
-<body>
+<body onresize="app.onResize()">
+    
+    
+    
+    
+        <div id="progressDialog" class="progressDialog hidden">
+      <div id="spinner"></div>
+      <span id="message">Loading ads...</span>
+    </div>
+    
+    
+    
     <nav>
         <ul>
             <li onclick="location.assign('index.html')">EYACHAY</li>
@@ -29,11 +40,15 @@
         </form>
     </div>
     <audio src="src/tap.ogg" id="tap" preload="auto"></audio>
+<script type="text/javascript" src="cordova.js"></script>
+<script src="js/index.js"></script>
 <script src="js/scripts.js"></script>
 
 <script>
     leer();
     mostrar();
+    app.initialize();
+    app.requestInterstitial(true);
 </script>
 
 </body>
