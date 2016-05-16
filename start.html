@@ -12,7 +12,7 @@
     
     
     
-        <div id="progressDialog" class="progressDialog hidden">
+    <div id="progressDialog" class="progressDialog hidden">
       <div id="spinner"></div>
       <span id="message">Loading ads...</span>
     </div>
@@ -26,6 +26,7 @@
             <li onclick="del();">DELETE</li>
             <li onclick="showadd();">ADD</li>
         </ul>
+        <a onclick="app.requestInterstitial(true)">Request and show Interstitial</a>
     </nav>
     <div class="casillero" id="icasillero">
 
@@ -48,8 +49,8 @@
     leer();
     mostrar();
     app.initialize();
-    app.requestInterstitial(true);
+    
 </script>
-
+      
 </body>
 </html>
