@@ -25,7 +25,10 @@ function mostrar(){
     var tmp="";
     for (var i = 0; i < data.length; i++) {
         var element = data[i];
-        tmp+="<div index="+i+" sub='"+element.sub+"' title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1><h3 style='text-transform:lowercase;'>"+element.sub+"</h3></div>";
+        if(element.title.length>=12)
+            tmp+="<div index="+i+" class='reduccion' sub='"+element.sub+"' title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1><h3 style='text-transform:lowercase;'>"+element.sub+"</h3></div>";       
+        else
+            tmp+="<div index="+i+" sub='"+element.sub+"' title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1><h3 style='text-transform:lowercase;'>"+element.sub+"</h3></div>";
     }
     document.getElementById("icasillero").innerHTML=tmp;
 }
@@ -134,7 +137,7 @@ function crapida(idelemento){
     
 }
 
-
+/*---------------------------SELECT FIN ------------------*/
 
 function tap(){
     var v = document.getElementById("tap");
