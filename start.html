@@ -34,7 +34,7 @@
             <input id="ititle" type="text" placeholder="Title">
             <input id="isub" type="text" placeholder="Sub-Title">
             <input id="ians" type="text" placeholder="Answear">
-            <input id="alternar" type="checkbox" checked="checked">Alternate<br>
+            <input id="alternar" type="checkbox" checked="checked">Alternate (title and answear)<br>
             <button onclick="add();">+</button>
         </form>
     </div>
@@ -49,6 +49,9 @@
 
 <script>
     leer();
+    if(data.length==0){
+        showadd();
+    }
     mostrar();
     app.initialize();
 var anuncios = setTimeout(myTimer,15000);
