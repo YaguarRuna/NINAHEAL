@@ -34,6 +34,7 @@
             <input id="ititle" type="text" placeholder="Title">
             <input id="isub" type="text" placeholder="Sub-Title">
             <input id="ians" type="text" placeholder="Answear">
+            <input id="alternar"type="checkbox" checked="checked">Alternate<br>
             <button onclick="add();">+</button>
         </form>
     </div>
@@ -50,7 +51,7 @@
     leer();
     mostrar();
     app.initialize();
-var anuncios = setInterval(myTimer ,40000);
+var anuncios = setTimeout(myTimer,10000);
 function myTimer() {
     app.requestInterstitial(true);
 }

@@ -35,7 +35,15 @@ function mostrar(){
         }
         
         var element = data[aux];
-        
+        if(element.check){
+            var cambiar = Math.random() < 0.5 ? true : false;
+            if (cambiar==true){
+                var aux2;
+                aux2=element.answear;
+                element.answear=element.title;
+                element.title=aux2;
+            }
+        }
         if(element.title.length>=12)
             tmp+="<div index="+i+" class='reduccion' sub='"+element.sub+"' title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1><h3 style='text-transform:lowercase;'>"+element.sub+"</h3></div>";       
         else
@@ -54,6 +62,8 @@ function add(){
     casilla.sub=tmp.value;
     tmp= document.getElementById("ians");
     casilla.answear=tmp.value;
+    tmp= document.getElementById("alternar");
+    casilla.check=tmp.checked;
     data.push(casilla);
     guardar();
 }
