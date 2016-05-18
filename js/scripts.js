@@ -23,8 +23,19 @@ function leer(){
 }
 function mostrar(){
     var tmp="";
+    var selected=[];
     for (var i = 0; i < data.length; i++) {
-        var element = data[i];
+        var aux;
+        while(true){
+            aux=Math.floor(Math.random()*data.length);
+            if(selected.indexOf(aux)==-1){
+                selected.push(aux);
+                break;
+            }
+        }
+        
+        var element = data[aux];
+        
         if(element.title.length>=12)
             tmp+="<div index="+i+" class='reduccion' sub='"+element.sub+"' title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1><h3 style='text-transform:lowercase;'>"+element.sub+"</h3></div>";       
         else
@@ -51,7 +62,10 @@ function ccasilla(idelemento){
     var respuesta=tmp.getAttribute("respuesta");
     var title=tmp.getAttribute("title");
     if(eliminar){
+        if(respuesta.length<=12)
+            tmp.parentNode.classList.remove("reduccion");
         tmp.innerHTML="<h1 style='text-transform:uppercase;'>"+respuesta+"</h1><h3 style='text-transform:lowercase;'>"+title+"</h3>";
+        
         tmp.classList.add("cselected");
         tap();
     }
