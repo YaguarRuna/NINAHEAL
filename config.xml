@@ -1,5 +1,5 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://eyachay.org" id="com.eyachay.memcard" version="1.0.0">
-  <name>MEMCARD</name>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://eyachay.org" id="com.eyachay.memcard" version="1.2.0">
+  <name>MEMOCARD</name>
   <description>Cards To The Brain</description>
   <author href="http://eyachay.org" email="informatica@eyachay.org">Eyachay</author>
   <content src="index.html"/>
