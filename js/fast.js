@@ -23,5 +23,5 @@ function ccasilla(idelemento){
     var tmp=document.getElementById(idelemento);
     var title=tmp.getAttribute("title");
     localStorage.setItem("ccategory",title);
-    location.assign("start.html"); 
+    location.assign("fgame.html"); 
 }
