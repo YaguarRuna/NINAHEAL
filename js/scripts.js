@@ -1,24 +1,17 @@
-var data=[];
+var data= new Array;
 var eliminar=true;
-var rapido=[];
+var currentcategoria=localStorage.getItem("ccategory");
 function showadd(){
     document.getElementById("cadd").style.visibility="visible";
 }
 
 function guardar(){
-    localStorage.clear();
-    for (var i = 0; i < data.length; i++) {
-        var element = data[i];
-        localStorage.setItem("c"+i,JSON.stringify(element));
-    }
-    localStorage.setItem("contador",data.length);
+    localStorage.setItem("casillas"+currentcategoria,JSON.stringify(data));
 }
 function leer(){
-    var contador=localStorage.getItem("contador")*1;
-    data=[];
-    for (var i = 0; i < contador; i++) {
-        var element = localStorage.getItem("c"+i);
-        data.push(JSON.parse(element));
+    data=JSON.parse(localStorage.getItem("casillas"+currentcategoria));
+    if (data==null){
+        data=[];
     }
 }
 function mostrar(){
@@ -44,10 +37,11 @@ function mostrar(){
                 element.title=aux2;
             }
         }
+        
         if(element.title.length>=12)
-            tmp+="<div index="+i+" class='reduccion' sub='"+element.sub+"' title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1><h3 style='text-transform:lowercase;'>"+element.sub+"</h3></div>";       
+            tmp+="<div index="+i+" class='reduccion'  title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1></div>";       
         else
-            tmp+="<div index="+i+" sub='"+element.sub+"' title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1><h3 style='text-transform:lowercase;'>"+element.sub+"</h3></div>";
+            tmp+="<div index="+i+" title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1></div>";
     }
     document.getElementById("icasillero").innerHTML=tmp;
 }
@@ -58,8 +52,6 @@ function add(){
         return;
     }
     casilla.title=tmp.value;
-    tmp= document.getElementById("isub");
-    casilla.sub=tmp.value;
     tmp= document.getElementById("ians");
     casilla.answear=tmp.value;
     tmp= document.getElementById("alternar");
@@ -72,8 +64,13 @@ function ccasilla(idelemento){
     var respuesta=tmp.getAttribute("respuesta");
     var title=tmp.getAttribute("title");
     if(eliminar){
-        if(respuesta.length<=12)
-            tmp.parentNode.classList.remove("reduccion");
+        if(respuesta.length>=12)
+            tmp.classList.add("reduccion");
+        else    
+            tmp.classList.remove("reduccion");
+        
+        
+            
         tmp.innerHTML="<h1 style='text-transform:uppercase;'>"+respuesta+"</h1><h3 style='text-transform:lowercase;'>"+title+"</h3>";
         
         tmp.classList.add("cselected");

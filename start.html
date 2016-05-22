@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>NINAHEAL</title>
   <meta name="author" content="EYACHAY">
   <link rel="stylesheet" href="css/style.css">  
@@ -18,7 +19,7 @@
     
     <nav>
         <ul>
-            <li onclick="location.assign('index.html')">EYACHAY</li>
+            <li onclick="location.assign('categorias.html')">CATEGORY</li>
             <li onclick="location.reload();">AGAIN</li>
             <li onclick="del();">DELETE</li>
             <li onclick="showadd();">ADD</li>
@@ -32,7 +33,6 @@
         <form>
             <h1>ADD CARD</h1>
             <input id="ititle" type="text" placeholder="Title">
-            <input id="isub" type="text" placeholder="Sub-Title">
             <input id="ians" type="text" placeholder="Answer">
             <input id="alternar" type="checkbox" checked="checked">Alternate (title and answear)<br>
             <button onclick="add();">+</button>
@@ -54,7 +54,7 @@
     }
     mostrar();
     app.initialize();
-var anuncios = setTimeout(myTimer,15000);
+var anuncios = setTimeout(myTimer,3000);
 function myTimer() {
     app.requestInterstitial(true);
 }

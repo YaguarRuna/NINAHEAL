@@ -15,6 +15,9 @@ nav li{
     width: 23.3%;
     font-size: 15px;
 }
+nav li:first-child{
+    padding-left: 5px; 
+}
 .menu{
     width: 40%;
     margin:20px auto;
@@ -31,6 +34,13 @@ nav li{
 .casillero{
     margin-top: 13px;
 }
+.categoria{
+    color:green;
+    
+}
+.categoria div{
+    border: 2px dotted black;
+}
 .casillero div{
     display: inline-block;
     width:150px;
@@ -43,13 +53,14 @@ nav li{
 .casillero div::-webkit-scrollbar{
     display: none;
 }
-
+.casillero .reduccion{
+    padding: 10;
+}
 .casillero .reduccion h1{
     font-size: 15px;
 }
 .casillero .cselected{
     color: rebeccapurple;
-    border-style: inset;
 }
 .agregar{
     display: block;
@@ -72,7 +83,7 @@ nav li{
 }
 .agregar input[type="checkbox"]{
     display: inline-block;
-    width:40px;
+    width:60px;
     margin:0;
     height: initial;
     
