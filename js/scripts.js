@@ -102,66 +102,6 @@ function del(){
 }
 
 
-/*----------------SELECT------------------*/
-function select(){
-    leer();
-    
-    var tmp="";
-    for (var i = 0; i < data.length; i++) {
-        var element = data[i];
-        tmp+="<div index="+i+" sub='"+element.sub+"' title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla2(\"c"+i+"\")' ><h1 style='text-transform:lowercase;'>"+element.title+"</h1><h3 style='text-transform:lowercase;'>"+element.sub+"</h3></div>";
-    }
-    document.getElementById("icasillero").innerHTML=tmp;
-    
-}
-
-function ccasilla2(idelemento){
-    var tmp=document.getElementById(idelemento);
-    var respuesta=tmp.getAttribute("respuesta");
-    var title=tmp.getAttribute("title");
-    var subtitle=tmp.getAttribute("sub");
-    var casilla= new Object();
-    casilla.title=title;
-    casilla.sub=subtitle;
-    casilla.answear=respuesta;
-    casilla.puntaje=3;
-    rapido.push(casilla);
-    guardar2();      
-}
-
-function leer2(){
-    var contador=localStorage.getItem("contador2")*1;
-    rapido=[];
-    for (var i = 0; i < contador; i++) {
-        var element = localStorage.getItem("cr"+i);
-        rapido.push(JSON.parse(element));
-    }
-}
-function guardar2(){
-    localStorage.clear();
-    guardar();
-    for (var i = 0; i < rapido.length; i++) {
-        var element = rapido[i];
-        localStorage.setItem("cr"+i,JSON.stringify(element));
-    }
-    localStorage.setItem("contador2",rapido.length);
-}
-function mostrar2(){
-    leer2();
-    var tmp="";
-    for (var i = 0; i < rapido.length; i++) {
-        var element = rapido[i];
-        tmp+="<div index="+i+" sub='"+element.sub+"' puntaje='"+element.puntaje+"' title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='crapida(\"c"+i+"\")' ><h1 style='text-transform:lowercase;'>"+element.title+"</h1><h3 style='text-transform:lowercase;'>"+element.sub+"</h3></div>";
-    }
-    document.getElementById("icasillero").innerHTML=tmp;
-}
-
-function crapida(idelemento){
-    
-    
-}
-
-/*---------------------------SELECT FIN ------------------*/
 
 function tap(){
     var v = document.getElementById("tap");

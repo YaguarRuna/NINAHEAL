@@ -71,12 +71,12 @@ var app = {
                 bannerAtTop: true, // set to true, to put banner at top
                 overlap: false, // set to true, to allow banner overlap webview
                 offsetStatusBar: true, // set to true to avoid ios7 status bar overlap
-                isTesting: false, // receiving test ads (do not test with real ads as your account will be banned)
+                isTesting: true, // receiving test ads (do not test with real ads as your account will be banned)
                 autoShowBanner: true, // auto show banners ad when loaded
                 autoShowInterstitial: false // auto show interstitials ad when loaded
             });
         } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
+            alert('The message of the oblivion');
         }
     },
     // Bind Event Listeners
@@ -90,7 +90,7 @@ var app = {
             document.addEventListener(admob.events.onAdLeftApplication, function (e) { }, false);
             document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) { }, false);
         } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
+            alert('The message of the oblivion');
         }
     },
 
@@ -123,7 +123,7 @@ var app = {
             console.log('Initializing ads...');
             app.initAds();
         } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
+            alert('The message of the oblivion');
         }
     },
     onAdLoaded: function (e) {
@@ -132,13 +132,12 @@ var app = {
             if (app.autoShowInterstitial) {
                 window.admob.showInterstitialAd();
             } else {
-                alert("Interstitial is available. Click on 'Show Interstitial' to show it.");
+                alert("The message of the oblivion");
             }
         }
     },
     onAdFailedToLoad: function (e) {
         app.showProgress(false);
-        alert("Could not load ad: " + JSON.stringify(e));
     },
     onResize: function () {
         var msg = 'Web view size: ' + window.innerWidth + ' x ' + window.innerHeight;
@@ -152,10 +151,10 @@ var app = {
         if (window.admob) {
             app.showProgress(true);
             window.admob.createBannerView(function () { }, function (e) {
-                alert(JSON.stringify(e));
+                
             });
         } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
+            alert('The message of the oblivion');
         }
     },
     removeBannerAds: function () {
@@ -163,7 +162,7 @@ var app = {
             app.showProgress(false);
             window.admob.destroyBannerView();
         } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
+            alert('The message of the oblivion');
         }
     },
     showBannerAds: function () {
@@ -173,7 +172,7 @@ var app = {
                 alert(JSON.stringify(e));
             });
         } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
+            alert('The message of the oblivion');
         }
     },
     hideBannerAds: function () {
@@ -181,7 +180,7 @@ var app = {
             app.showProgress(false);
             window.admob.showBannerAd(false);
         } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
+            alert('The message of the oblivion');
         }
     },
     requestInterstitial: function (autoshow) {
@@ -189,20 +188,20 @@ var app = {
             app.showProgress(true);
             app.autoShowInterstitial = autoshow;
             window.admob.requestInterstitialAd(function () { }, function (e) {
-                alert(JSON.stringify(e));
+                
             });
         } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
+            alert('The message of the oblivion');
         }
     },
     showInterstitial: function () {
         if (window.admob) {
             app.showProgress(false);
             window.admob.showInterstitialAd(function () { }, function (e) {
-                alert(JSON.stringify(e));
+               
             });
         } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
+            alert('The message of the oblivion');
         }
     },
     showProgress: function (show) {
