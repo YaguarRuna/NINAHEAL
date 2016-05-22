@@ -1,29 +1,6 @@
 var data = [];
-var eliminar=true;
-function add(){
-    var casilla= new Object();
-    var tmp= document.getElementById("isub");
-    if(tmp.value==""){
-        return;
-    }
-    casilla.title=tmp.value;
-    data.push(casilla);
-    guardar();
-}
-
-function guardar(){
-    localStorage.setItem("contador2",data.length);
-    localStorage.setItem("categorias",JSON.stringify(data));
-}
-
-
-
-function showadd(){
-    document.getElementById("cadd").style.visibility="visible";
-}
 
 function leer(){
-    var contador=localStorage.getItem("contador2")*1;
     data=JSON.parse(localStorage.getItem("categorias"));
     if (data==null){
         data=[];
@@ -62,12 +39,4 @@ function ccasilla(idelemento){
     }
     
     guardar();      
-}
-function del(){
-    eliminar=!eliminar;
-    if(eliminar==false)
-        document.getElementById("icasillero").classList.add("eliminar");
-    else
-        location.reload();
-    
 }

@@ -18,6 +18,9 @@ nav li{
 nav li:first-child{
     padding-left: 5px; 
 }
+nav li:last-child{
+    padding-right: 0px;
+}
 .menu{
     width: 40%;
     margin:20px auto;

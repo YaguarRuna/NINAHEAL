@@ -10,6 +10,7 @@ function guardar(){
 }
 function leer(){
     data=JSON.parse(localStorage.getItem("casillas"+currentcategoria));
+    
     if (data==null){
         data=[];
     }
