@@ -1,7 +1,9 @@
 var data= new Array;
 
 var currentcategoria=localStorage.getItem("ccategory");
-
+var contados=0;
+var elegido;
+var bandera=true;
 function leer(){
     data=JSON.parse(localStorage.getItem("casillas"+currentcategoria));
     
@@ -10,66 +12,73 @@ function leer(){
     }
 }
 function mostrar(){
-    var tmp="";
+    var tmp = "";
+    var contador = data.length;
+    var datos=[];
+
+    for (var i = 0; i < contador; i++) {
+        var element= new Object();
+        element.title=data[i].title;
+        element.answer=data[i].answear;
+        datos.push(element);
+        element= new Object();
+        element.title=data[i].answear;
+        element.answer=data[i].title;
+        datos.push(element);
+    }
+    
+    
     var selected=[];
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < datos.length; i++) {
         var aux;
         while(true){
-            aux=Math.floor(Math.random()*data.length);
+            aux=Math.floor(Math.random()*datos.length);
             if(selected.indexOf(aux)==-1){
                 selected.push(aux);
                 break;
             }
         }
         
-        var element = data[aux];
-        if(element.check){
-            var cambiar = Math.random() < 0.5 ? true : false;
-            if (cambiar==true){
-                var aux2;
-                aux2=element.answear;
-                element.answear=element.title;
-                element.title=aux2;
-            }
-        }
-        
-        if(element.title.length>=12)
-            tmp+="<div index="+i+" class='reduccion'  title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1></div>";       
-        else
-            tmp+="<div index="+i+" title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1></div>";
+        var element = datos[aux];
+        tmp+="<div index="+i+" id='c"+i+"' title="+element.title+" done=false respuesta="+element.answer+" onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1></div>";
     }
+    
     document.getElementById("icasillero").innerHTML=tmp;
 }
 
 function ccasilla(idelemento){
     var tmp=document.getElementById(idelemento);
-    var respuesta=tmp.getAttribute("respuesta");
+    var done=tmp.getAttribute("done");
+    if(done==true) return;
     var title=tmp.getAttribute("title");
-    if(eliminar){
-        if(respuesta.length>=12)
-            tmp.classList.add("reduccion");
-        else    
-            tmp.classList.remove("reduccion");
-        
-        
-            
-        tmp.innerHTML="<h1 style='text-transform:uppercase;'>"+respuesta+"</h1><h3 style='text-transform:lowercase;'>"+title+"</h3>";
-        
-        tmp.classList.add("cselected");
-        tap();
-    }
-    else{
-        if(data.length>1){
-            var index=tmp.getAttribute("index");
-            data.splice(index*1,1);
+    var answer=tmp.getAttribute("respuesta");
+    if(elegido!=undefined && elegido.getAttribute("title")==title){return;}
+    
+    if(bandera){
+        elegido=tmp;
+        tmp.classList.add("selected");
+        bandera=!bandera;
+    }else{
+        if(elegido.getAttribute("respuesta")==title){
+            tmp.setAttribute("done",true);
+            elegido.setAttribute("done",true);
+            tmp.classList.add("selected");
+            contados+=2;
         }
         else{
-            data=[];
+            elegido.classList.remove("selected");
         }
-        tmp.parentNode.removeChild(tmp);
-
+        
+        elegido=document.getElementById("message");
+        bandera=!bandera;
     }
-    guardar();      
+
+
+    tap();
+    if(contados==data.length*2){
+        location.reload();
+    }
+   
 }
 
 
