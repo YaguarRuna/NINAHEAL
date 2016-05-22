@@ -22,21 +22,6 @@ function mostrar(){
 function ccasilla(idelemento){
     var tmp=document.getElementById(idelemento);
     var title=tmp.getAttribute("title");
-    if(eliminar){
-        localStorage.setItem("ccategory",title);
-        location.assign("start.html");
-    }
-    else{
-        if(data.length>1){
-            var index=tmp.getAttribute("index");
-            data.splice(index*1,1);
-        }
-        else{
-            data=[];
-        }
-        tmp.parentNode.removeChild(tmp);
-        localStorage.removeItem("casillas"+title);
-    }
-    
-    guardar();      
+    localStorage.setItem("ccategory",title);
+    location.assign("start.html"); 
 }
