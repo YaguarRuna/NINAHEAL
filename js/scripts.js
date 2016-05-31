@@ -40,9 +40,9 @@ function mostrar(){
         }
         
         if(element.title.length>=12)
-            tmp+="<div index="+i+" class='reduccion'  title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1></div>";       
+            tmp+="<div index="+aux+" class='reduccion'  title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1></div>";       
         else
-            tmp+="<div index="+i+" title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1></div>";
+            tmp+="<div index="+aux+" title='"+element.title+"' respuesta='"+element.answear+"' id='c"+i+"' onclick='ccasilla(\"c"+i+"\")' ><h1 style='text-transform:uppercase;'>"+element.title+"</h1></div>";
     }
     document.getElementById("icasillero").innerHTML=tmp;
 }

@@ -42,7 +42,7 @@ nav li:last-child{
     
 }
 .categoria div{
-    border: 2px dotted black;
+    border: 2px solid black;
 }
 .casillero div{
     display: inline-block;
